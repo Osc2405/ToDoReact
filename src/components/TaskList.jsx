@@ -3,19 +3,20 @@ import Checkbox from './Checkbox';
 
 const TaskList = (props) => {
 
-    const {list,SetList}=props;
+    const {list,setList}=props;
 
-    const onChangeStatus=e =>{
-        const {name, checked}=e.target;
-        const updateList=list.map(item =>({
-            ...item, done: item.id === name ? checked : item.done
-        }))
-        SetList(updateList)
-    }
+    const onChangeStatus = e => {
+        const { name, checked } = e.target;
+        const updateList = list.map(item => ({
+          ...item,
+          done: item.id === name ? checked : item.done
+        }));
+        setList(updateList);
+      };
 
     const onClickRemoveItem = e =>{
         const updateList=list.filter(item => !item.done);
-        SetList(updateList)
+        setList(updateList)
     }
 
     const chk=list.map(item=>(
